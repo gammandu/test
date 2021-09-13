@@ -1,0 +1,28 @@
+1. 2 encapsulation
+2. 3 OOD
+3. 1 deployment diagram
+4. 4 연관관계없음
+5. 2 elaboration
+6. 1 inception
+7. N/A
+8. 4 attribute-parameter 만
+9. 3 둘다중요
+10. 1 1~5가능
+11. S1>H*>S1>H*>S5.1
+12. abcde 1개
+13. 2개 id,pw
+14. composite sturcture diagram
+    : 소프트웨어 시스템의 구성, 시스템을 구성하는 데 사용되는 구조적 요소 및 인터페이스의 선택에 대한 일련의 중요한 결정, 이러한 요소 간의 협업에 지정된 동작, 이러한 구조적 및 행동적 요소의 구성 점진적으로 더 큰 하위 시스템과 이 조직을 안내하는 아키텍처 스타일(이러한 요소와 해당 인터페이스, 협업 및 구성)으로 이동합니다.
+15. 좌측의 makeNewSale() 은 시스템으로 새로운 상품을 주문한다는 것만 표현하며
+     우측의 ProcessSale Frame 클래스는 실제 오퍼레이션이 구현되었을 때 어떻게 동작하는지 상세히 기술 (Swing UI를 통한 method 수행)
+16. 도메인 모델은 Elaboration Phase 에서 class 다이어그램과 sequence 다이어그램을 작성하는데 참조되고
+     Construction Phase에서는 더이상 참조할 일이 없음
+17. incorrect PW 상황 발생시 loop 문이 중복으로 작성되어있음
+18. 
+switch()
+{
+case[a>b] aa = aaa(a)
+case[a<b] bb = bbb(b)
+case[else] aa = aaa(c), bb = bbb(c)
+}
+19. 
