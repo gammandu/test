@@ -1,0 +1,59 @@
+class similarity {
+    public int getSimilar(String s1, String s2) {
+        int CountPoint=0;
+        int KindPoint=0;
+
+        int num1, num2;
+        num1 = s1.length();
+        num2 = s2.length();
+
+        //System.out.println("length of s1 : "+ num1);
+        //System.out.println("length of s2 : "+ num2);
+
+        // CountPoint = 50점 * 짧은글자수/긴글자수
+        if(num1==num2) CountPoint=50;
+        else if(num1*2<num2 || num1>num2*2) CountPoint=0;
+        else if(num1>num2) CountPoint=50*num2/num1;
+        else CountPoint=50*num1/num2;
+
+        String s1trim = "";
+        String s2trim = "";
+        for (int i = 0; i <s1.length();i++) {
+            if(s1.indexOf(s1.charAt(i))==i) s1trim+=s1.charAt(i);
+        }
+        for (int i = 0; i <s2.length();i++) {
+            if(s2.indexOf(s2.charAt(i))==i) s2trim+=s2.charAt(i);
+        }
+
+        String longtrim, shotrtrim;
+        if (s1trim.length()>s2trim.length()) {
+            longtrim=s1trim;
+            shotrtrim=s2trim;
+        }
+        else {
+            longtrim=s2trim;
+            shotrtrim=s1trim;
+        }
+        //System.out.println("longtrim : "+ longtrim);
+        //System.out.println("shotrtrim : "+ shotrtrim);
+
+        int sameCount=0;
+        for(int i=0;i<shotrtrim.length();i++) {
+            for (int j=0;j<longtrim.length();j++) {
+                if(shotrtrim.charAt(i) == longtrim.charAt(j)) {
+                    //System.out.println(shotrtrim.charAt(i)+" is same");
+                    sameCount++;
+                }
+            }
+        }
+        //System.out.println("sameCount : "+ sameCount);
+
+        // 글자를 각각 중복제거 후
+        // KindPoint = 50점 * 중복글자수/긴글자수
+        KindPoint = 50*sameCount/longtrim.length();
+
+        //System.out.println("CountPoint : "+ CountPoint);
+        //System.out.println("KindPoint : "+ KindPoint);
+        return CountPoint+KindPoint;
+    }
+}
