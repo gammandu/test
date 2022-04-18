@@ -1,0 +1,55 @@
+public class Main {
+    public static void main(String[] args){
+    }
+}
+
+class similarity {
+    public int getSimilar(String s1, String s2) {
+        int CountPoint=getCountPoint(s1.length(), s2.length());
+
+        // 글자를 각각 알파벳 중복제거 후
+        String longtrim=getTrim(s1);
+        String shotrtrim=getTrim(s2);
+        if (longtrim.length()>shotrtrim.length()) {
+            String temp = longtrim;
+            longtrim=shotrtrim;
+            shotrtrim=temp;
+        }
+
+        // 중복된 글자의 갯수를 구해서
+        int sameCount = getSameCount(longtrim,shotrtrim);
+
+        // KindPoint = 50점 * 중복글자수/긴글자수
+        int KindPoint = 50*sameCount/longtrim.length();
+
+        return CountPoint+KindPoint;
+    }
+
+    public int getCountPoint(int num1, int num2) {
+        // CountPoint = 50점 * 짧은글자수/긴글자수
+        if(num1==num2) return 50;
+        else if(num1*2<num2 || num1>num2*2) return 0;
+        else if(num1>num2) return 50*num2/num1;
+        else return 50*num1/num2;
+    }
+
+    public String getTrim(String str) {
+        String temp="";
+        for (int i = 0; i <str.length();i++) {
+            if(str.indexOf(str.charAt(i))==i) temp+=str.charAt(i);
+        }
+        return temp;
+    }
+
+    public int getSameCount(String longtrim, String shotrtrim) {
+        int temp=0;
+        for(int i=0;i<shotrtrim.length();i++) {
+            for (int j=0;j<longtrim.length();j++) {
+                if(shotrtrim.charAt(i) == longtrim.charAt(j)) {
+                    temp++;
+                }
+            }
+        }
+        return temp;
+    }
+}
